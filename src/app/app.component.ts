@@ -2,10 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
-import { Page3 } from '../pages/page3/page3';
-import { Page4 } from '../pages/page4/page4';
+import { Submit } from '../pages/submit/submit';
+import { Statistics } from '../pages/statistics/statistics';
+import { Info } from '../pages/info/info';
+import { Settings } from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +13,7 @@ import { Page4 } from '../pages/page4/page4';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = Submit;
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,10 +22,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'WOD 입력', component: Page1 },
-      { title: 'Statistics', component: Page2 },
-      { title: '회원정보', component: Page3 },
-      { title: '설 정', component: Page4 }
+      { title: 'WOD submit', component: Submit },
+      { title: 'Statistics', component: Statistics },
+      { title: '회원정보', component: Info },
+      { title: '설 정', component: Settings }
     ];
 
   }
