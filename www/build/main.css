@@ -24651,6 +24651,10 @@ ion-navbar.toolbar {
   }
 }
 
+page-logged-out .page-back {
+  background: linear-gradient(to right, #296ad4 100%, #4e8ef7 10%);
+}
+
 fab-toolbar.right {
   right: 0;
 }

@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Auth } from '@ionic/cloud-angular';
 
 import { Submit } from '../pages/submit/submit';
 import { Statistics } from '../pages/statistics/statistics';
 import { Info } from '../pages/info/info';
 import { Settings } from '../pages/settings/settings';
+import { AuthPage } from '../pages/auth/auth';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,13 +15,15 @@ import { Settings } from '../pages/settings/settings';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Submit;
+  rootPage: any = AuthPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, public events: Events, public auth: Auth) {
     this.initializeApp();
 
+    
+    
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'WOD submit', component: Submit },
@@ -28,8 +32,24 @@ export class MyApp {
       { title: '설 정', component: Settings }
     ];
 
-  }
+    
 
+  }
+   
+
+  onPageDidEnter() {
+      this.events.subscribe('user:logged_in', () => { 
+        console.log("This works");
+        this.nav.setRoot(Submit);
+      });
+      if (this.auth.isAuthenticated() === false) {
+        // User is not authenticated, proceed to auth page.
+        this.nav.setRoot(AuthPage);
+      } else {
+        // User is authenticated, proceed to main screen.
+        this.nav.setRoot(Submit);
+      }
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -37,6 +57,8 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
+      
+    
   }
 
   openPage(page) {
