@@ -19,7 +19,7 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
   
-    doLogin(form) {
+  doLogin(form) {
         this.submitted = true;
         if (form.valid) {
             this.auth.login('basic', this.login ).then( () => {
@@ -29,6 +29,6 @@ export class LoginPage {
                 alert('Login failed.');
             });      
         }
-    }
+  }
 
 }

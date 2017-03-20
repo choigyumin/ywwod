@@ -24830,6 +24830,10 @@ fab-toolbar.closed ion-row ion-col button {
   padding: 0px;
 }
 
+page-statistics ion-card-header {
+  font-weight: bold;
+}
+
 page-submit ion-list {
   margin-top: 70px;
 }

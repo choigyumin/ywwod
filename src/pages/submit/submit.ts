@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, AlertController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, ToastController, Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-submit',
@@ -12,7 +12,10 @@ export class Submit {
   public icon: string = 'more';
   public enableBackdropDismiss: boolean = false;
   public buttonColor: string = 'dark';
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events) {
+      this.events.subscribe('user:logged_in', () => { 
+        this.presentToast('this works??');
+      });
   }
   public buttons =  [
       {

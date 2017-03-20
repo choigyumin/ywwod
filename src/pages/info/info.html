@@ -3,16 +3,22 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Info</ion-title>
+    <ion-title>Member Info</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>DB로부터 회원정보를 받아서 뿌려주기~!</h3>
+  <ion-card>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <ion-item *ngIf="auth.isAuthenticated()">
+        <ion-avatar item-left>
+            defaultImage
+        </ion-avatar>
+        <h2>Email {{ user.details.email }}</h2>
+        <p>Name {{ user.details.name }}</p>
+      </ion-item>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  </ion-card>
+
+  <button ion-button secondary (click) = "changePw()"> Change Password</button>
 </ion-content>
