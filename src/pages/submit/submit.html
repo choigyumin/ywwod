@@ -9,13 +9,37 @@
 
 <ion-content padding>
   <h3>Today's WOD</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-  <button ion-button secondary menuToggle>메뉴 열기</button>
+    <ion-list>
+      <form #submitForm="ngForm" novalidate>
+        <ion-item  class="submit-form">                
+          <ion-label floating>Date</ion-label>
+          <ion-input [(ngModel)]="submit.date" name="date"  required  #date="ngModel" type="date"></ion-input>
+        </ion-item>
+        <ion-item  class="submit-form">                
+          <ion-label floating>Box</ion-label>
+          <ion-input [(ngModel)]="submit.box" name="box"  required  #box="ngModel" ></ion-input>
+        </ion-item>
+        <ion-item  class="submit-form">                
+          <ion-label floating>WOD</ion-label>
+          <ion-input [(ngModel)]="submit.wod" name="wod"  required  #wod="ngModel"></ion-input>
+        </ion-item>
+        <ion-item  class="submit-form">                
+          <ion-label floating>Record</ion-label>
+          <ion-input [(ngModel)]="submit.record" name="record"  required  #record="ngModel"></ion-input>
+        </ion-item>
+        <ion-item  class="submit-form">                
+          <ion-label floating>Memo</ion-label>
+          <ion-input [(ngModel)]="submit.memo" name="memo"  required  #memo="ngModel"></ion-input>
+        </ion-item>
+      </form>
+    </ion-list>
+    <br>
+    <ion-row>
+        <ion-col text-center>
+            <button ion-button type="submit" (click)="doSubmit(submitForm)" style="width:75%; position: relative; text-align: center;" color="primary">Submit</button>
+        </ion-col>
+    </ion-row>
     <div id ="more">
       <fab-toolbar ion-fixed [enableBackdropDismiss]="enableBackdropDismiss" [color]="color" [icon]="icon" [position]="position"  [buttons]="buttons"></fab-toolbar>
     </div>
-
 </ion-content>
