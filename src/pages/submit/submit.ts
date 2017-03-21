@@ -10,9 +10,14 @@ import { Statistics } from '../statistics/statistics';
   templateUrl: 'submit.html'
 })
 export class Submit {
-    
-  submit = {date:'', box:'', wod:'', record:'', memo:''};
-
+  submit = {
+                box:'', 
+                wod:'', 
+                record:'', 
+                memo:'',
+                date:''
+           };
+  
   //TODO: 모든페이지에 MORE 토스트버튼 추가
   public color: string = 'primary';
   public position: string = 'right';
@@ -25,7 +30,11 @@ export class Submit {
 
   doSubmit(form) {
       if (form.valid) {
-          this.db.collection("users").upsert(this.submit);
+          this.db.collection("users").upsert({
+              id:this.user.id,
+              WOD:this.submit
+          });
+          this.db.collection("users")
           this.nav.setRoot(Statistics);
       }
   }

@@ -12,8 +12,8 @@
     <ion-list>
       <form #submitForm="ngForm" novalidate>
         <ion-item  class="submit-form">                
-          <ion-label floating></ion-label>
-          <ion-input [(ngModel)]="submit.date" name="date"  required  #date="ngModel" type="date"></ion-input>
+          <ion-label floating>Date</ion-label>
+          <ion-datetime displayFormat="YYYY MM DD" name = "date" [(ngModel)]="submit.date" #date="ngModel"></ion-datetime>
         </ion-item>
         <ion-item  class="submit-form">                
           <ion-label floating>Box</ion-label>
