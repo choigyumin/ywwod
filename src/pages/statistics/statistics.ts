@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
+import { User } from '@ionic/cloud-angular';
 
 @Component({
   selector: 'page-statistics',
@@ -13,7 +14,7 @@ export class Statistics {
 
   lineChart: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public user:User) {
   }
    
   ionViewDidLoad() {
@@ -21,10 +22,10 @@ export class Statistics {
  
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: this.user.get('date',[]),
                 datasets: [
                     {
-                        label: "My First dataset",
+                        label: "전체기록",
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: "rgba(75,192,192,0.4)",
@@ -42,7 +43,7 @@ export class Statistics {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: [65, 59, 80, 81, 56, 55, 40],
+                        data: this.user.get('record',[]),
                         spanGaps: false,
                     }
                 ]

@@ -10,6 +10,11 @@ import { Statistics } from '../statistics/statistics';
   templateUrl: 'submit.html'
 })
 export class Submit {
+  boxArray = this.user.get('box', []);
+  wodArray = this.user.get('wod', []);
+  recordArray = this.user.get('record',[]);
+  memoArray = this.user.get('memo',[]);
+  dateArray = this.user.get('date',[]);
   submit = {
                 box:'', 
                 wod:'', 
@@ -17,7 +22,6 @@ export class Submit {
                 memo:'',
                 date:''
            };
-  
   //TODO: 모든페이지에 MORE 토스트버튼 추가
   public color: string = 'primary';
   public position: string = 'right';
@@ -26,15 +30,30 @@ export class Submit {
   public buttonColor: string = 'dark';
   constructor(public nav:Nav, public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events, public db:Database, public user:User, public auth:Auth) {
       this.db.connect();
+      
   }
 
   doSubmit(form) {
       if (form.valid) {
+          this.boxArray.push(this.submit.box);
+          this.wodArray.push(this.submit.wod);
+          this.recordArray.push(this.submit.record);
+          this.memoArray.push(this.submit.memo);
+          this.dateArray.push(this.submit.date);
+          this.user.set('box', this.boxArray);
+          this.user.set('wod', this.wodArray);
+          this.user.set('record', this.recordArray);
+          this.user.set('memo', this.memoArray);
+          this.user.set('date', this.dateArray);
+          this.user.save();
+          //using user's custom data
+          //instead of database
+          /*
           this.db.collection("users").upsert({
               id:this.user.id,
               WOD:this.submit
           });
-          this.db.collection("users")
+          */
           this.nav.setRoot(Statistics);
       }
   }
