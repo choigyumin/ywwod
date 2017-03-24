@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+        <ion-list>
+            <form #loginForm="ngForm" novalidate>
+            <ion-item  class="login-form">                
+                <ion-label floating>Email</ion-label>
+                <ion-input [(ngModel)]="login.email" name="email"  required  #email="ngModel" type="email"></ion-input>
+            </ion-item>
+            <p [hidden]="email.valid" color="danger" padding-left>
+                Email is required
+            </p>
+            <ion-item  class="login-form">                
+                <ion-label floating>Password</ion-label>
+                <ion-input [(ngModel)]="login.password" name="password" #password="ngModel" required  type="password"></ion-input>
+            </ion-item>
+            <p [hidden]="password.valid" color="danger" padding-left>
+                Password is required
+            </p>
+            </form>
+        </ion-list>
+    <br>
+    <ion-row>
+        <ion-col text-center>
+            <button ion-button type="submit" (click)="doLogin(loginForm)" style="width:75%; position: relative; text-align: center;" color="primary">Login</button>
+        </ion-col>
+    </ion-row>
+</ion-content>

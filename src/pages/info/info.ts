@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
-
-import { NavController } from 'ionic-angular';
+import { InAppBrowser } from 'ionic-native';
+import { Nav, NavController, Platform } from 'ionic-angular';
+import { Database, User,Auth } from '@ionic/cloud-angular';
 
 @Component({
   selector: 'page-info',
   templateUrl: 'info.html'
 })
 export class Info {
-
-  constructor(public navCtrl: NavController) {
-    
+  constructor(public nav: Nav, public navCtrl: NavController, public db:Database, public user:User, public auth:Auth, public platform:Platform) {
+    this.db.connect();
+  }
+  
+  changePw() {
+        this.platform.ready().then(() => {
+            let browser = new InAppBrowser(this.auth.passwordResetUrl, "_system");
+        });
   }
 
 }

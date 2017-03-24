@@ -7,7 +7,9 @@ import { Statistics } from '../pages/statistics/statistics';
 import { Info } from '../pages/info/info';
 import { Settings } from '../pages/settings/settings';
 import { FabToolbar } from '../pages/fab-toolbar/fab-toolbar';
-
+import { AuthPage } from '../pages/auth/auth';
+import { SignupPage } from '../pages/signup/signup';
+import { LoginPage } from '../pages/login/login';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -24,7 +26,10 @@ const cloudSettings: CloudSettings = {
     Statistics,
     Info,
     Settings,
-    FabToolbar
+    FabToolbar,
+    AuthPage,
+    SignupPage,
+    LoginPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -37,7 +42,10 @@ const cloudSettings: CloudSettings = {
     Statistics,
     Info,
     Settings,
-    FabToolbar
+    FabToolbar,
+    AuthPage,
+    SignupPage,
+    LoginPage
   ],
   
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]

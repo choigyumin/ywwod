@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Signup</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>    
+    <form #signupForm="ngForm" novalidate>
+      <ion-item>
+        <ion-input [(ngModel)]="signup.email" name="email" type="text" spellcheck="false" #email="ngModel" placeholder="Email" autocapitalize="off" required>
+        </ion-input>
+      </ion-item>
+      <p [hidden]="email.valid || submitted == false" color="danger" padding-left>
+      Username is required
+      </p>
+
+      <ion-item>
+        <ion-input [(ngModel)]="signup.password" name="password" #password="ngModel"  placeholder="Password" type="password" required>
+        </ion-input>
+      </ion-item>
+      <p [hidden]="password.valid || submitted == false" color="danger" padding-left>
+      Password is required
+      </p>
+
+      <ion-item>
+        <ion-input [(ngModel)]="signup.name" name="name" type="text" placeholder="Name" #name="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <p [hidden]="name.valid || submitted == false" color="danger" padding-left>
+      Name is required
+      </p>
+
+      <ion-row responsive-sm>
+        <ion-col>
+          <button ion-button (click)="doSignup(signupForm)" type="submit" color="primary" block>Signup</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>
+ 
