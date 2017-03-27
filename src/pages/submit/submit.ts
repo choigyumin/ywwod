@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 
 import { Nav, NavController, AlertController, ToastController, Events } from 'ionic-angular';
+import { FormControl } from '@angular/forms';
 
 import { Database, User,Auth } from '@ionic/cloud-angular';
 import { Statistics } from '../statistics/statistics';
+import { WodProvider } from '../../providers/wod-provider'
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'page-submit',
@@ -28,9 +31,16 @@ export class Submit {
   public icon: string = 'more';
   public enableBackdropDismiss: boolean = false;
   public buttonColor: string = 'dark';
-  constructor(public nav:Nav, public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events, public db:Database, public user:User, public auth:Auth) {
+  
+  //필터 서치바 부분
+  searchTerm: string = '';
+  searchControl: FormControl
+  items: any;
+  searching: any = false;
+
+  constructor(public nav:Nav, public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events, public db:Database, public user:User, public auth:Auth, public dataService: WodProvider) {
       this.db.connect();
-      
+      this.searchControl = new FormControl();
   }
 
   doSubmit(form) {
@@ -91,5 +101,26 @@ export class Submit {
       duration: 1000
     });
     toast.present();
+  }
+
+  //필터 서치바 메서드
+  ionViewDidLoad() {
+ 
+    this.setFilteredItems();
+    this.searchControl.valueChanges.debounceTime(400).subscribe(search => {
+    this.searching = false;
+    this.setFilteredItems();
+      
+    });
+  }
+ 
+  onSearchInput() {
+    this.searching = true;
+  }
+
+  setFilteredItems() {
+
+    this.items = this.dataService.filterItems(this.searchTerm);
+
   }
 }
