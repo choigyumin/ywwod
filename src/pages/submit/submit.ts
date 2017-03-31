@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 
 import { Nav, NavController, AlertController, ToastController, Events } from 'ionic-angular';
 
-import { Database, User,Auth } from '@ionic/cloud-angular';
+import { User,Auth } from '@ionic/cloud-angular';
 import { Statistics } from '../statistics/statistics';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 @Component({
   selector: 'page-submit',
@@ -28,9 +29,9 @@ export class Submit {
   public icon: string = 'more';
   public enableBackdropDismiss: boolean = false;
   public buttonColor: string = 'dark';
-  constructor(public nav:Nav, public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events, public db:Database, public user:User, public auth:Auth) {
-      this.db.connect();
-      
+  public wods: FirebaseListObservable<any>;
+  constructor(public nav:Nav, public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events, public user:User, public auth:Auth, public af: AngularFire) {
+      this.wods = af.database.list('/wods');
   }
 
   doSubmit(form) {

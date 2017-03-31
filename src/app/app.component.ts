@@ -8,6 +8,7 @@ import { Statistics } from '../pages/statistics/statistics';
 import { Info } from '../pages/info/info';
 import { Settings } from '../pages/settings/settings';
 import { AuthPage } from '../pages/auth/auth';
+import { WodlistPage } from '../pages/wodlist/wodlist';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +30,8 @@ export class MyApp {
       { title: 'WOD submit', component: Submit },
       { title: 'Statistics', component: Statistics },
       { title: '회원정보', component: Info },
-      { title: '설 정', component: Settings }
+      { title: '설 정', component: Settings },
+      { title: 'WOD List', component: WodlistPage }
     ];
 
     
