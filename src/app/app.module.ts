@@ -13,8 +13,28 @@ import { FabToolbar } from '../pages/fab-toolbar/fab-toolbar';
 import { AuthPage } from '../pages/auth/auth';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
+<<<<<<< HEAD
 import { WodProvider } from '../providers/wod-provider';
 
+=======
+import { WodlistPage } from '../pages/wodlist/wodlist';
+
+
+import { AngularFireModule } from 'angularfire2';
+//Before import, two commands should be installed
+// npm install @ionic/app-scripts@latest --save-dev
+// npm install firebase --save
+// npm install angularfire2 --save
+
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyAm1gpnn30s9JKCxnqNuoyA0sBdEWdY1bo",
+  authDomain: "ywwod-cccb6.firebaseapp.com",
+  databaseURL: "https://ywwod-cccb6.firebaseio.com",
+  storageBucket: "ywwod-cccb6.appspot.com",
+  messagingSenderId: "494192261395"
+};
+>>>>>>> choigyumin/master
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -34,11 +54,13 @@ const cloudSettings: CloudSettings = {
     FabToolbar,
     AuthPage,
     SignupPage,
-    LoginPage
+    LoginPage,
+    WodlistPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings)
+    CloudModule.forRoot(cloudSettings),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +72,8 @@ const cloudSettings: CloudSettings = {
     FabToolbar,
     AuthPage,
     SignupPage,
-    LoginPage
+    LoginPage,
+    WodlistPage
   ],
   
   //providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
