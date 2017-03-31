@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <h3>Today's WOD</h3>
-    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()" (ionCancel)="onCancel($event)" (animated)="true" (autocomplete)="on"></ion-searchbar>
+    <!-- <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()" (ionCancel)="onCancel($event)" (animated)="true" (autocomplete)="on"></ion-searchbar>
     <div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>
     </div>
@@ -17,9 +17,9 @@
       <ion-item *ngFor="let item of items">
         {{item.title}}
       </ion-item>
-    </ion-list>
+    </ion-list> -->
 
-    <ion-list>
+    <!-- <ion-list> -->
       <form #submitForm="ngForm" novalidate>
         <ion-item  class="submit-form">                
           <ion-label floating>Date</ion-label>
@@ -29,17 +29,18 @@
         <!-- 필터서치바 부분 -->
         <ion-item  class="submit-form">                
           <ion-label floating>Box</ion-label>
-          <ion-input [(ngModel)]="submit.box" name="box"  required  #box="ngModel" ></ion-input>
+          <ion-input [(ngModel)]="submit.box" name="box" required #box="ngModel" type="search"></ion-input>
           <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()" (ionCancel)="onCancel($event)"></ion-searchbar>
           <div *ngIf="searching" class="spinner-container">
               <ion-spinner></ion-spinner>
           </div>
-          <ion-list>
-            <ion-item *ngFor="let item of items">
-              {{item.title}}
-            </ion-item>
-          </ion-list>
+          
         </ion-item>
+        <ion-list>
+          <ion-item *ngFor="let item of items">
+            {{item.title}}
+          </ion-item>
+        </ion-list>
 
         <ion-item  class="submit-form">                
           <ion-label floating>WOD</ion-label>
@@ -54,7 +55,7 @@
           <ion-input [(ngModel)]="submit.memo" name="memo"   #memo="ngModel"></ion-input>
         </ion-item>
       </form>
-    </ion-list>
+    <!-- </ion-list> -->
     <br>
     <ion-row>
         <ion-col text-center>

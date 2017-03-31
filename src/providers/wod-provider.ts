@@ -21,8 +21,8 @@ export class WodProvider {
         {title: 'two'},
         {title: 'three'},
         {title: 'four'},
-        {title: 'five'},
-        {title: 'six'}
+        {title: 'five'}
+        
     ]
     console.log('Hello WodProvider Provider');
   }
