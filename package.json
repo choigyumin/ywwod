@@ -32,19 +32,13 @@
     "zone.js": "0.7.2"
   },
   "devDependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
     "@ionic/app-scripts": "1.1.4",
     "@ionic/cli-plugin-cordova": "0.0.9",
-=======
     "@ionic/app-scripts": "^1.2.3",
->>>>>>> choigyumin/master
-=======
 
     "@ionic/app-scripts": "1.1.4",
     "@ionic/cli-plugin-cordova": "0.0.9",
     "@ionic/app-scripts": "^1.2.3",
->>>>>>> filterbar-branch
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [
