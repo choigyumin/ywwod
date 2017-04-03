@@ -5,12 +5,10 @@ import { FormControl } from '@angular/forms';
 
 import { User,Auth } from '@ionic/cloud-angular';
 import { Statistics } from '../statistics/statistics';
-<<<<<<< HEAD
 import { WodProvider } from '../../providers/wod-provider'
 import 'rxjs/add/operator/debounceTime';
-=======
+
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
->>>>>>> choigyumin/master
 
 @Component({
   selector: 'page-submit',
@@ -35,7 +33,6 @@ export class Submit {
   public icon: string = 'more';
   public enableBackdropDismiss: boolean = false;
   public buttonColor: string = 'dark';
-<<<<<<< HEAD
   
   //필터 서치바 부분
   searchTerm: string = '';
@@ -43,15 +40,13 @@ export class Submit {
   items: any;
   searching: any = false;
 
-  constructor(public nav:Nav, public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events, public db:Database, public user:User, public auth:Auth, public dataService: WodProvider) {
-      this.db.connect();
-      this.searchControl = new FormControl();
-=======
-  public wods: FirebaseListObservable<any>;
-  constructor(public nav:Nav, public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events, public user:User, public auth:Auth, public af: AngularFire) {
+  constructor(public nav:Nav, public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController, public events:Events, public user:User, public auth:Auth, public dataService: WodProvider, public af: AngularFire) {
       this.wods = af.database.list('/wods');
->>>>>>> choigyumin/master
+      this.searchControl = new FormControl();
   }
+
+  public wods: FirebaseListObservable<any>;
+  
 
   doSubmit(form) {
       if (form.valid) {

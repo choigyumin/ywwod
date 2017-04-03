@@ -13,10 +13,9 @@ import { FabToolbar } from '../pages/fab-toolbar/fab-toolbar';
 import { AuthPage } from '../pages/auth/auth';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
-<<<<<<< HEAD
+
 import { WodProvider } from '../providers/wod-provider';
 
-=======
 import { WodlistPage } from '../pages/wodlist/wodlist';
 
 
@@ -34,7 +33,6 @@ export const firebaseConfig = {
   storageBucket: "ywwod-cccb6.appspot.com",
   messagingSenderId: "494192261395"
 };
->>>>>>> choigyumin/master
 
 const cloudSettings: CloudSettings = {
   'core': {
