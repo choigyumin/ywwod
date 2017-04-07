@@ -24845,8 +24845,10 @@ page-submit more {
 
 page-submit #measeringMethod .item-inner {
   border-bottom: none;
+  padding-right: 0;
 }
 
 page-submit #measeringMethod ion-label {
   color: #999;
+  margin-right: 0;
 }
