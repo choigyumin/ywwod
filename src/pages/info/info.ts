@@ -13,7 +13,7 @@ export class Info {
   
   changePw() {
         this.platform.ready().then(() => {
-            let browser = new InAppBrowser(this.auth.passwordResetUrl, "_system");
+            new InAppBrowser(this.auth.passwordResetUrl, "_system");
         });
   }
 
