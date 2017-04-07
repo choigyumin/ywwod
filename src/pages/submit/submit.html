@@ -25,7 +25,7 @@
           <ion-datetime displayFormat="YYYY MM DD" name = "date" [(ngModel)]="submit.date" #date="ngModel"></ion-datetime>
         </ion-item>
 
-        <ion-item  class="submit-form">
+        <ion-item id="measeringMethod" class="submit-form">
           <ion-label>Record Type
           <ion-segment [(ngModel)]="submit.kind" name = "kind" color="secondary" #kind="ngModel">
             <ion-segment-button value="time">
