@@ -19,32 +19,33 @@
       </ion-item>
     </ion-list> -->
 
-    <!-- <ion-list> -->
       <form #submitForm="ngForm" novalidate>
         <ion-item  class="submit-form">                
           <ion-label floating>Date</ion-label>
           <ion-datetime displayFormat="YYYY MM DD" name = "date" [(ngModel)]="submit.date" #date="ngModel"></ion-datetime>
         </ion-item>
 
-        <!-- 필터서치바 부분 -->
-        <ion-item  class="submit-form">                
-          <ion-label floating>Box</ion-label>
-          <ion-input [(ngModel)]="submit.box" name="box" required #box="ngModel" type="search"></ion-input>
-          <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()" (ionCancel)="onCancel($event)"></ion-searchbar>
-          <div *ngIf="searching" class="spinner-container">
-              <ion-spinner></ion-spinner>
-          </div>
-          
+        <ion-item id="measeringMethod" class="submit-form">
+          <ion-label>Record Type
+          <ion-segment [(ngModel)]="submit.kind" name = "kind" color="secondary" #kind="ngModel">
+            <ion-segment-button value="time">
+              TIME
+            </ion-segment-button> 
+            <ion-segment-button value="count">
+              COUNT
+            </ion-segment-button> 
+            <ion-segment-button value="round">
+              ROUND
+            </ion-segment-button> 
+          </ion-segment>
+          </ion-label>
         </ion-item>
-        <ion-list>
-          <ion-item *ngFor="let item of items">
-            {{item.title}}
-          </ion-item>
-        </ion-list>
-
+        
         <ion-item  class="submit-form">                
           <ion-label floating>WOD</ion-label>
-          <ion-input [(ngModel)]="submit.wod" name="wod"  required  #wod="ngModel"></ion-input>
+            <ion-select [(ngModel)]="submit.wod" name="wod" #wod="ngModel" multiple = "true">
+              <ion-option *ngFor="let wod of wods | async" [value]="wod.title">{{wod.title}}</ion-option>
+            </ion-select>
         </ion-item>
         <ion-item  class="submit-form">                
           <ion-label floating>Record</ion-label>
@@ -55,8 +56,6 @@
           <ion-input [(ngModel)]="submit.memo" name="memo"   #memo="ngModel"></ion-input>
         </ion-item>
       </form>
-    <!-- </ion-list> -->
-    <br>
     <ion-row>
         <ion-col text-center>
             <button ion-button type="submit" (click)="doSubmit(submitForm)" style="width:75%; position: relative; text-align: center;" color="primary">Submit</button>
