@@ -11,14 +11,16 @@
   <ion-card>
 
     <ion-item *ngIf="auth.isAuthenticated()">
-        <ion-avatar item-left>
-            defaultImage
-        </ion-avatar>
-        <h2>Email {{ user.details.email }}</h2>
-        <p>Name {{ user.details.name }}</p>
+        <ion-thumbnail item-left>
+            <img src="">
+        </ion-thumbnail>
+        <h2>{{ user.details.email }}</h2> 
+        <p>BOX {{ user.get('box', "")}}</p>
+        <button ion-button clear (click) = "changeBox()">change box</button>
       </ion-item>
 
   </ion-card>
 
   <button ion-button secondary (click) = "changePw()"> Change Password</button>
+  <button ion-button secondary (click) = "logOut()"> Log Out</button>
 </ion-content>
