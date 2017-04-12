@@ -25,9 +25,9 @@
 
   <ion-list>
     <ion-item *ngFor="let wod of wods | async">
-      {{wod.name}}
+      {{wod.title}}
       <ion-buttons end *ngIf= "user.get('admin', '') == 'T' ">
-      <button ion-button clear (click)="showOptions(wod.$key, wod.name)">
+      <button ion-button clear (click)="showOptions(wod.$key, wod.title)">
       set
       </button>
     </ion-buttons>

@@ -36,7 +36,7 @@ export const firebaseConfig = {
 
 const cloudSettings: CloudSettings = {
   'core': {
-    'app_id': '64cb5d39'
+    'app_id': '72dec206'
   },
   'database': {
     'authType': 'authenticated'
