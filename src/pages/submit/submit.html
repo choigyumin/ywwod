@@ -44,7 +44,7 @@
         <ion-item  class="submit-form">                
           <ion-label floating>WOD</ion-label>
             <ion-select [(ngModel)]="submit.wod" name="wod" #wod="ngModel" multiple = "true">
-              <ion-option *ngFor="let wod of wods | async" [value]="wod.title">{{wod.title}}</ion-option>
+              <ion-option *ngFor="let wod of wods | async" [value]="wod.name">{{wod.name}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item  class="submit-form">                

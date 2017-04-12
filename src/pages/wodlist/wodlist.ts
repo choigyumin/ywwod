@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, ActionSheetController } from 'ionic-angular';
+import { User,Auth } from '@ionic/cloud-angular';
 
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 /*
@@ -14,7 +15,7 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 })
 export class WodlistPage {
   public wods: FirebaseListObservable<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public af: AngularFire, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: Auth, public user: User, public af: AngularFire, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController) {
       this.wods = af.database.list('/wods');
   }
 
@@ -43,7 +44,7 @@ export class WodlistPage {
         text: 'Save',
         handler: data => {
           this.wods.push({
-            title: data.title
+            name: data.title
           });
         }
       }
@@ -100,7 +101,7 @@ export class WodlistPage {
           text: 'Save',
           handler: data => {
             this.wods.update(wodId, {
-              title: data.title
+              name: data.title
             });
           }
         }
