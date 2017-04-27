@@ -24651,8 +24651,22 @@ ion-navbar.toolbar {
   }
 }
 
+.page-back {
+  background-image: url("crossfit.jpg");
+}
+
 page-logged-out .page-back {
   background: linear-gradient(to right, #296ad4 100%, #4e8ef7 10%);
+}
+
+.mywodTitle span {
+  color: black;
+  font-weight: bolder;
+}
+
+.auth_footer button {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 fab-toolbar.right {
@@ -24830,17 +24844,33 @@ fab-toolbar.closed ion-row ion-col button {
   padding: 0px;
 }
 
-page-statistics ion-card-header {
-  font-weight: bold;
+.loginPage {
+  background-image: url("crossfit.jpg");
 }
 
-page-submit ion-list {
-  margin-top: 70px;
+ion-header {
+  background-color: transparent;
+}
+
+ion-list {
+  opacity: 0.9;
+}
+
+page-statistics ion-card-header {
+  font-weight: bold;
 }
 
 page-submit more {
   position: absolute;
   bottom: 0px;
+}
+
+page-submit ion-datetime {
+  padding-bottom: 6px;
+}
+
+page-submit ion-datetime div.datetime-text {
+  height: auto;
 }
 
 page-submit #measeringMethod .item-inner {
@@ -24851,4 +24881,5 @@ page-submit #measeringMethod .item-inner {
 page-submit #measeringMethod ion-label {
   color: #999;
   margin-right: 0;
+  margin-top: 35px;
 }

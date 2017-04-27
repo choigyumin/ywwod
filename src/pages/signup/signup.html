@@ -32,6 +32,16 @@
       <p [hidden]="name.valid || submitted == false" color="danger" padding-left>
       Name is required
       </p>
+      
+      <ion-item>
+        <ion-input [(ngModel)]="signup.height" name="name" type="text" placeholder="height" #name="ngModel">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input [(ngModel)]="signup.weight" name="name" type="text" placeholder="weight" #name="ngModel">
+        </ion-input>
+      </ion-item>  
 
       <ion-row responsive-sm>
         <ion-col>

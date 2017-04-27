@@ -1,9 +1,25 @@
 page-auth {
-
+    
 }
-
+.page-back {
+    background-image: url("crossfit.jpg");
+    
+}
 page-logged-out {
   .page-back {    
     background: linear-gradient(to right, #296ad4 100%, #4e8ef7 10%);
   }
+}
+
+.mywodTitle {
+    span {
+        color: black;
+        font-weight: bolder;        
+    }
+}
+.auth_footer {
+    button {
+    font-size: 20px;
+    font-weight: 600;
+}
 }
