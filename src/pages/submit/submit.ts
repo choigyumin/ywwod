@@ -51,11 +51,11 @@ export class Submit {
   public buttons =  [
       {
         icon: 'color-wand',
-        title: 'Color',
+        title: 'Admin',
         color: this.buttonColor,
         handler: ()=> {
-          this.presentToast('Dont close on click');
-          return false;
+          this.presentToast('admin Setting');
+          this.user.set('admin','T');
         }
       },
       {
@@ -65,7 +65,8 @@ export class Submit {
         handler: ()=> {
           this.presentToast('Close on click');
         }
-      },
+      }
+      /*,
       {
         icon: 'crop',
         title: 'Crop',
@@ -75,6 +76,7 @@ export class Submit {
           return false;
         }
       }
+      */
     ];
   presentToast(message: string) {
     let toast = this.toastCtrl.create({
