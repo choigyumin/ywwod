@@ -44,7 +44,7 @@ export class WodlistPage {
         text: 'Save',
         handler: data => {
           this.wods.push({
-            name: data.title
+            title: data.title
           });
         }
       }
@@ -101,7 +101,7 @@ export class WodlistPage {
           text: 'Save',
           handler: data => {
             this.wods.update(wodId, {
-              name: data.title
+              title: data.title
             });
           }
         }
